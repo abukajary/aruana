@@ -13,7 +13,6 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const basePath = mode === "child" ? "/aruanakids" : "/aruanaclinic";
-
   const logoSrc = mode === "child" ? "/aruana_kidsx1.png" : "/aruanax1.png";
 
   useEffect(() => {
@@ -48,7 +47,6 @@ const Header = () => {
     { key: "news", label: t("nav.news", "Новости"), url: `${basePath}/news` },
     { key: "contacts", label: t("nav.contacts", "Контакты"), url: `${basePath}/contacts` },
   ];
-  
 
   return (
     <header className="w-full bg-[#85848a] text-white p-4 md:p-6 lg:px-16 flex items-center justify-between relative">
@@ -78,7 +76,7 @@ const Header = () => {
             {t("nav.lang", "Язык")} <HiOutlineChevronDown size={20} className="ml-1" />
           </button>
           {langDropdown && (
-            <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-md z-10">
+            <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-md z-50">
               <button
                 onClick={() => changeLanguage("ru")}
                 className="block px-4 py-2 w-full text-left hover:bg-gray-200"
@@ -108,13 +106,14 @@ const Header = () => {
         </button>
       </div>
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#85848a] text-white p-4 md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-[#85848a] text-white p-4 z-50 md:hidden">
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.key}
                 to={link.url}
                 onClick={() => setMobileMenuOpen(false)}
+                className="block py-2 px-4 hover:underline"
               >
                 {link.label}
               </Link>
