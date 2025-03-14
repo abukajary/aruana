@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, ReactNode } from "react";
+import { createContext, useState, useContext, ReactNode, useMemo, useEffect } from "react";
 import i18n from "../i18n";
 
 export type Language = "ru" | "en" | "kz";
@@ -14,24 +14,21 @@ interface AppContextProps {
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLangState] = useState<Language>("ru");
-  const [mode, setModeState] = useState<Mode>("adult");
+  const [language, setLanguage] = useState<Language>("ru");
+  const [mode, setMode] = useState<Mode>("adult");
 
-  const setLanguage = (lang: Language) => {
-    setLangState(lang);
-    i18n.changeLanguage(lang);
-  };
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]); 
 
-  const setMode = (mode: Mode) => {
-    setModeState(mode);
-  };
-
-  return (
-    <AppContext.Provider value={{ language, mode, setLanguage, setMode }}>
-      {children}
-    </AppContext.Provider>
+  const contextValue = useMemo(
+    () => ({ language, mode, setLanguage, setMode }),
+    [language, mode]
   );
+
+  return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 };
+
 
 export const useAppContext = () => {
   const context = useContext(AppContext);
