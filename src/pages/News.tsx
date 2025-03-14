@@ -72,7 +72,7 @@ const InstagramNews: React.FC = () => {
     <main className="w-full max-w-[1400px] mx-auto p-8">
       <header className="text-center mb-12">
         <h1 className="text-5xl font-bold text-neutral-800">{t.newsSection.title}</h1>
-        <p className="text-lg text-neutral-600 mt-4">{t.newsSection.subtitle}</p>
+        {/* <p className="text-lg text-neutral-600 mt-4">{t.newsSection.subtitle}</p> */}
       </header>
 
       {loading ? (
