@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../contexts/AppContext";
 import {
   FaFacebookF,
@@ -10,9 +11,10 @@ import {
 const Footer = () => {
   const { t } = useTranslation();
   const { mode } = useAppContext();
+  const navigate = useNavigate();
 
-  const logoSrc =
-    mode === "child" ? "/aruana_kidsx1.png" : "/aruanax1.png";
+
+  const logoSrc = mode === "child" ? "/aruana_kidsx1.png" : "/aruanax1.png";
 
   const footerColumns = [
     {
@@ -66,7 +68,10 @@ const Footer = () => {
               )}
             </p>
           </div>
-          <button className="px-6 py-3 bg-white text-[#85848a] font-semibold rounded-lg hover:bg-gray-200 transition">
+          <button
+            onClick={() => navigate("/appointment")}
+            className="px-6 py-3 bg-white text-[#85848a] font-semibold rounded-lg hover:bg-gray-200 transition"
+          >
             {t("footer.cta.button", "Написать")}
           </button>
         </div>
@@ -93,7 +98,9 @@ const Footer = () => {
           ))}
 
           <div className="flex flex-col items-start space-y-6">
-            <h3 className="text-xl font-medium">{t("footer.social.heading", "Наши соц сети")}</h3>
+            <h3 className="text-xl font-medium">
+              {t("footer.social.heading", "Наши соц сети")}
+            </h3>
             <div className="flex space-x-4">
               {socialIcons.map((item, index) => (
                 <a

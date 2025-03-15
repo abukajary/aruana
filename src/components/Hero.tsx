@@ -61,17 +61,16 @@ const Hero = () => {
               ? t("hero.adults_rehab_text")
               : t("hero.kids_rehab_text")}
           </p>
-          <button className="px-5 py-2.5 rounded-lg bg-white text-base font-bold text-[#23556d] border border-[#23556d]">
+          <button
+            onClick={() => navigate("/appointment")}
+            className="px-5 py-2.5 rounded-lg bg-white text-base font-bold text-[#23556d] border border-[#23556d]"
+          >
             {t("hero.consultation")}
           </button>
         </div>
         <div className="w-full md:w-1/2 flex justify-end mt-10 md:mt-0">
           <img
-            src={
-              mode === "adult"
-                ? "/mainclinic.jpg"
-                : "/mainkids.jpg"
-            }
+            src={mode === "adult" ? "/mainclinic.jpg" : "/mainkids.jpg"}
             alt="Rehab Center"
             className="max-w-full max-h-[400px] rounded-lg shadow-lg"
           />

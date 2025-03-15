@@ -14,6 +14,9 @@ const Header = () => {
 
   const basePath = mode === "child" ? "/aruanakids" : "/aruanaclinic";
   const logoSrc = mode === "child" ? "/aruana_kids_logo-03 1.png" : "/logo_aivory_Монтажная область 1 копия 1@2x.png";
+  const instagramUrl = basePath === "/aruanaclinic" 
+    ? "https://www.instagram.com/aruanakids/" 
+    : "https://www.instagram.com/aruana_clinic/";
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -62,7 +65,7 @@ const Header = () => {
       </nav>
       <div className="flex items-center space-x-4">
         <a
-          href="https://www.instagram.com"
+          href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -71,7 +74,7 @@ const Header = () => {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setLangDropdown(!langDropdown)}
-            className="flex items-center hover:opacity-80"
+            className=" items-center hover:opacity-80 hidden"
           >
             {t("nav.lang", "Язык")} <HiOutlineChevronDown size={20} className="ml-1" />
           </button>
