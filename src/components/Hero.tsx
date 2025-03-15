@@ -34,8 +34,8 @@ const Hero = () => {
               <img
                 src={
                   mode === "adult"
-                    ? "../../public/aivory/горизонтальный/png/logo_aivory_Монтажная область 1 копия.png"
-                    : "../../public/aivory/горизонтальный/png/logo_aivory-04.png"
+                    ? "/aivory/горизонтальный/png/logo_aivory_Монтажная область 1 копия.png"
+                    : "/aivory/горизонтальный/png/logo_aivory-04.png"
                 }
                 alt="Логотип"
                 className="w-[200px]"
@@ -50,7 +50,7 @@ const Hero = () => {
               }`}
             >
               <img
-                src="../../public/aruana_kids_logo_Монтажная область 1.png"
+                src="/public/aruana_kids_logo_Монтажная область 1.png"
                 alt=""
                 className="w-[200px]"
               />
@@ -69,8 +69,8 @@ const Hero = () => {
           <img
             src={
               mode === "adult"
-                ? "../../public/mainclinic.jpg"
-                : "../../public/mainkids.jpg"
+                ? "/public/mainclinic.jpg"
+                : "/public/mainkids.jpg"
             }
             alt="Rehab Center"
             className="max-w-full max-h-[400px] rounded-lg shadow-lg"
