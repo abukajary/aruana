@@ -40,11 +40,11 @@ const TrustSection = () => {
         ];
 
   const photos = [
-    "/images/photo1.jpg",
-    "/images/photo2.jpg",
-    "/images/photo3.jpg"
+    "/trust1.jpg",
+    "/trust2.jpg",
+    "/trust3.jpg",
+    "/trust5.jpg",
   ];
-
   return (
     <section
       className="py-12"

@@ -7,6 +7,7 @@ import About from "./pages/About";
 import ServicesPage from "./pages/Services";
 import InstagramNews from "./components/NewsSection";
 import ContactPage from "./pages/Contacts";
+import PatientInfoPage from "./pages/PatientInfoPage";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         
         <Route path="/aruanaclinic/contacts" element={<ContactPage />} />
         <Route path="/aruanakids/contacts" element={<ContactPage />} />
+        
+        <Route path="/aruanaclinic/requirements" element={<PatientInfoPage />} />
+        <Route path="/aruanakids/requirements" element={<PatientInfoPage />} />
       </Routes>
       <Footer />
     </Router>

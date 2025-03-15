@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <div className="relative w-full bg-[#f4f4f4] flex flex-col items-center">
-      <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center py-12 px-4">
+      <div className=" w-full mx-auto flex flex-col md:flex-row items-center p-4 md:p-6 lg:px-16">
         <div className="w-full md:w-1/2 space-y-6">
           <p className="text-base font-bold text-[#23556d]">
             {t("hero.welcome_to_aruana")}
@@ -31,7 +31,15 @@ const Hero = () => {
                   : "text-[#2b2e4a] bg-gray-200"
               }`}
             >
-              {t("hero.adults")}
+              <img
+                src={
+                  mode === "adult"
+                    ? "../../public/aivory/горизонтальный/png/logo_aivory_Монтажная область 1 копия.png"
+                    : "../../public/aivory/горизонтальный/png/logo_aivory-04.png"
+                }
+                alt="Логотип"
+                className="w-[200px]"
+              />
             </button>
             <button
               onClick={() => handleModeChange("child")}
@@ -41,7 +49,11 @@ const Hero = () => {
                   : "text-[#2b2e4a] bg-gray-200"
               }`}
             >
-              {t("hero.kids")}
+              <img
+                src="../../public/aruana_kids_logo_Монтажная область 1.png"
+                alt=""
+                className="w-[200px]"
+              />
             </button>
           </div>
           <p className="text-base font-medium text-[#23556d]">
@@ -53,11 +65,15 @@ const Hero = () => {
             {t("hero.consultation")}
           </button>
         </div>
-        <div className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0">
+        <div className="w-full md:w-1/2 flex justify-end mt-10 md:mt-0">
           <img
-            src="/mainphoto.jpg"
+            src={
+              mode === "adult"
+                ? "../../public/mainclinic.jpg"
+                : "../../public/mainkids.jpg"
+            }
             alt="Rehab Center"
-            className="max-w-full h-auto rounded-lg shadow-lg"
+            className="max-w-full max-h-[400px] rounded-lg shadow-lg"
           />
         </div>
       </div>

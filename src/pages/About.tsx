@@ -1,36 +1,49 @@
+import { useAppContext } from "../contexts/AppContext";
 
-import { useTranslation } from "react-i18next";
-import UTMHandler from "../components/UTMHandler";
-
-const About = () => {
-  const { t } = useTranslation();
+const AboutPage = () => {
+  const { mode } = useAppContext()
 
   return (
-    <div className="max-w-7xl mx-auto p-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
-      <UTMHandler />
-      <h2 className="text-3xl font-bold text-[#23556d] mb-6">
-        {t("about.title", "Немного о нас")}
-      </h2>
-      <p className="mb-4 text-lg text-[#23556d]">{t("about.mission")}</p>
-      <p className="mb-4 text-lg text-[#23556d] font-semibold">{t("about.happiness")}</p>
-      <p className="mb-4 text-lg text-[#23556d]">{t("about.professionalism")}</p>
-      <p className="mb-4 text-lg text-[#23556d]">{t("about.responsibility")}</p>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div>
-          <p className="text-4xl font-bold text-[#23556d]">{t("about.counters.patients")}</p>
-          <p className="mt-2 text-xl text-[#23556d]">1000</p>
-        </div>
-        <div>
-          <p className="text-4xl font-bold text-[#23556d]">{t("about.counters.doctors")}</p>
-          <p className="mt-2 text-xl text-[#23556d]">10</p>
-        </div>
-        <div>
-          <p className="text-4xl font-bold text-[#23556d]">{t("about.counters.massagists")}</p>
-          <p className="mt-2 text-xl text-[#23556d]">10</p>
-        </div>
+    <div className={`min-h-screen p-6 flex flex-col items-center ${mode === "adult" ? "bg-[#d8d9da]" : "bg-[#EFF2E1]"}`}>
+      <div className="max-w-4xl w-full">
+        <h1 className="text-4xl font-bold text-center">О нас</h1>
+        <img
+          src={mode === "adult" ? "/mainclinic.jpg" : "/mainkids.jpg"}
+          alt="О нас"
+          className="w-full h-64 object-cover rounded-lg shadow-lg mt-6"
+        />
+        <p className="mt-6 text-lg text-center">
+          {mode === "adult"
+            ? "Реабилитационный центр Aruana – это многопрофильный центр медицинской реабилитации, специализирующийся на восстановлении пациентов после заболеваний нервной системы, травм, кардиохирургических вмешательств и ортопедических операций."
+            : "Детский реабилитационный центр Aruana Kids – это специализированное учреждение, помогающее детям с неврологическими, ортопедическими и респираторными проблемами восстановить здоровье и развиваться."}
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 text-center">Миссия и ценности</h2>
+        <p className="mt-4 text-center">
+          {mode === "adult"
+            ? "Наша миссия – восстановить здоровье, улучшить качество жизни и вернуть пациентов к нормальной жизни после болезни."
+            : "Мы верим, что каждое дитя заслуживает счастливого детства и крепкого здоровья."}
+        </p>
+        <h2 className="text-2xl font-semibold mt-6 text-center">Почему выбирают нас?</h2>
+        <ul className="mt-4 list-disc pl-5 text-lg">
+          {mode === "adult" ? (
+            <>
+              <li>Современные методики и оборудование</li>
+              <li>Опытные специалисты</li>
+              <li>Индивидуальный подход</li>
+              <li>Комфортные условия реабилитации</li>
+            </>
+          ) : (
+            <>
+              <li>Индивидуальные программы восстановления</li>
+              <li>Поддержка родителей и обучение</li>
+              <li>ЛФК, массаж, физиотерапия</li>
+              <li>Комплексная диагностика</li>
+            </>
+          )}
+        </ul>
       </div>
     </div>
   );
 };
 
-export default About;
+export default AboutPage;

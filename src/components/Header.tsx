@@ -13,7 +13,7 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const basePath = mode === "child" ? "/aruanakids" : "/aruanaclinic";
-  const logoSrc = mode === "child" ? "/aruana_kidsx1.png" : "/aruanax1.png";
+  const logoSrc = mode === "child" ? "/aruana_kids_logo-03 1.png" : "/logo_aivory_Монтажная область 1 копия 1@2x.png";
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
