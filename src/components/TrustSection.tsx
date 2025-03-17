@@ -15,10 +15,7 @@ const TrustSection = () => {
           "trust.subtitle.adult",
           "Ваше здоровье – наш приоритет. Доверие строится на результате."
         )
-      : t(
-          "trust.subtitle.child",
-          "Каждая улыбка ребенка – это наша награда."
-        );
+      : t("trust.subtitle.child", "Каждая улыбка ребенка – это наша награда.");
   const trustButton =
     mode === "adult"
       ? t("trust.button.adult", "Подробнее")
@@ -27,28 +24,42 @@ const TrustSection = () => {
   const features =
     mode === "adult"
       ? [
-          t("features.methodology.adult", "Современные методики и оборудование"),
-          t("features.individual.adult", "Индивидуальный подход к каждому пациенту"),
+          t(
+            "features.methodology.adult",
+            "Современные методики и оборудование"
+          ),
+          t(
+            "features.individual.adult",
+            "Индивидуальный подход к каждому пациенту"
+          ),
           t("features.experienced.adult", "Опытные специалисты"),
-          t("features.quality.adult", "Профессиональное обслуживание")
+          t("features.quality.adult", "Профессиональное обслуживание"),
         ]
       : [
           t("features.methodology.child", "Интерактивные игровые методики"),
-          t("features.individual.child", "Индивидуальное внимание к каждому ребенку"),
+          t(
+            "features.individual.child",
+            "Индивидуальное внимание к каждому ребенку"
+          ),
           t("features.experienced.child", "Дружелюбные детские специалисты"),
-          t("features.quality.child", "Безопасная и уютная среда")
+          t("features.quality.child", "Безопасная и уютная среда"),
         ];
 
-  const photos = [
-    "/trust1.jpg",
-    "/trust2.jpg",
-    "/trust3.jpg",
-    "/trust5.jpg",
+  const photos = ["/trust1.jpg", "/trust2.jpg", "/trust3.jpg", "/trust5.jpg"];
+
+  const photosKids = [
+    "/kidsTrust1.jpg",
+    "/kidsTrust2.jpg",
+    "/kidsTrust3.jpg",
+    "/kidsTrust4.jpg",
   ];
   return (
     <section
       className="py-12"
-      style={{ backgroundColor: "#eeedef", fontFamily: "Montserrat, sans-serif" }}
+      style={{
+        backgroundColor: "#eeedef",
+        fontFamily: "Montserrat, sans-serif",
+      }}
     >
       <div className="w-full max-w-[1290px] h-auto mx-auto p-6 bg-gray-50 rounded-md shadow-lg">
         <div className="text-center mb-8">
@@ -57,11 +68,11 @@ const TrustSection = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2 grid grid-cols-2 gap-4">
-            {photos.map((src, index) => (
+            {(mode !== "adult" ? photosKids : photos).map((src, index) => (
               <img
                 key={index}
                 src={src}
-                alt={`aruana`}
+                alt="aruana"
                 className="w-full h-48 object-cover rounded shadow"
               />
             ))}
@@ -73,7 +84,9 @@ const TrustSection = () => {
                 className="flex items-center space-x-3 p-4 bg-[#d8d9da] rounded shadow-sm hover:shadow transition duration-150"
               >
                 <span className="text-2xl text-[#85848a]">✓</span>
-                <p className="text-lg font-semibold text-[#85848a]">{feature}</p>
+                <p className="text-lg font-semibold text-[#85848a]">
+                  {feature}
+                </p>
               </div>
             ))}
           </div>
