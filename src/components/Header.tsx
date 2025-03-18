@@ -43,10 +43,25 @@ const Header = () => {
   const navLinks = [
     { key: "home", label: t("nav.home", "Главная"), url: basePath },
     { key: "about", label: t("nav.about", "О нас"), url: `${basePath}/about` },
-    { key: "services", label: t("nav.services", "Услуги"), url: `${basePath}/services` },
-    { key: "requirements", label: t(mode === "child" ? "nav.forParents" : "nav.forPatients", mode === "child" ? "Для родителей" : "Для пациентов"), url: `${basePath}/requirements` },
+    {
+      key: "services",
+      label: t("nav.services", "Услуги"),
+      url: `${basePath}/services`,
+    },
+    {
+      key: "requirements",
+      label: t(
+        mode === "child" ? "nav.forParents" : "nav.forPatients",
+        mode === "child" ? "Для родителей" : "Для пациентов"
+      ),
+      url: `${basePath}/requirements`,
+    },
     { key: "news", label: t("nav.news", "Новости"), url: `${basePath}/news` },
-    { key: "contacts", label: t("nav.contacts", "Контакты"), url: `${basePath}/contacts` },
+    {
+      key: "contacts",
+      label: t("nav.contacts", "Контакты"),
+      url: `${basePath}/contacts`,
+    },
   ];
 
   return (
@@ -65,24 +80,46 @@ const Header = () => {
         </nav>
         <div className="flex items-center space-x-4">
           <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={24} className="hover:opacity-80 transition-opacity" />
+            <FaInstagram
+              size={24}
+              className="hover:opacity-80 transition-opacity"
+            />
           </a>
           <div className="relative" ref={dropdownRef}>
-            <button onClick={() => setLangDropdown(!langDropdown)} className="flex items-center hover:opacity-80">
-              {t("nav.lang", "Язык")} <HiOutlineChevronDown size={20} className="ml-1" />
+            <button
+              onClick={() => setLangDropdown(!langDropdown)}
+              className="flex items-center hover:opacity-80"
+            >
+              {t("nav.lang", "Язык")}{" "}
+              <HiOutlineChevronDown size={20} className="ml-1" />
             </button>
             {langDropdown && (
               <div className="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-md z-50">
-                <button onClick={() => changeLanguage("ru")} className="block px-4 py-2 w-full text-left hover:bg-gray-200">Рус</button>
-                <button onClick={() => changeLanguage("en")} className="block px-4 py-2 w-full text-left hover:bg-gray-200">Eng</button>
-                <button onClick={() => changeLanguage("kz")} className="block px-4 py-2 w-full text-left hover:bg-gray-200">Қаз</button>
+                <button
+                  onClick={() => changeLanguage("ru")}
+                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                >
+                  Рус
+                </button>
+                <button
+                  onClick={() => changeLanguage("en")}
+                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                >
+                  Eng
+                </button>
+                <button
+                  onClick={() => changeLanguage("kz")}
+                  className="block px-4 py-2 w-full text-left hover:bg-gray-200"
+                >
+                  Қаз
+                </button>
               </div>
             )}
           </div>
         </div>
       </header>
       {/* Навигационный бар для мобильных */}
-      <nav className="w-full bg-[#36383a] text-[#d8d9da] p-4 md:hidden flex justify-around">
+      <nav className="w-full bg-[#36383a] text-[#d8d9da] p-4 md:hidden grid grid-cols-2 gap-2 text-nowrap">
         {navLinks.map((link) => (
           <Link key={link.key} to={link.url} className="hover:underline">
             {link.label}
