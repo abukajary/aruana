@@ -85,7 +85,7 @@ const Header = () => {
               className="hover:opacity-80 transition-opacity"
             />
           </a>
-          <div className="relative" ref={dropdownRef}>
+          <div className="relative hidden" ref={dropdownRef}>
             <button
               onClick={() => setLangDropdown(!langDropdown)}
               className="flex items-center hover:opacity-80"
