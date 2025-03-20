@@ -71,7 +71,7 @@ const InstagramNews: React.FC = () => {
 
   return (
     <>
-      <NavLinks />
+      {/* <NavLinks /> */}
       <main className="w-full  mx-auto p-8">
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-neutral-800">
