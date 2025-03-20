@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAppContext } from "../contexts/AppContext";
+import NavLinks from "../components/NavLinks";
 
 const AppointmentPage = () => {
   const { mode } = useAppContext()
@@ -16,6 +17,8 @@ const AppointmentPage = () => {
   };
 
   return (
+    <>
+    <NavLinks />
     <div className={`min-h-screen p-6 flex flex-col items-center`}>
       <div className="max-w-2xl w-full bg-white p-6 rounded-lg shadow-lg">
         <h1 className="text-4xl font-bold text-center">Запись на прием</h1>
@@ -57,6 +60,7 @@ const AppointmentPage = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

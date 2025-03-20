@@ -1,17 +1,18 @@
 import Hero from "../components/Hero";
 import TrustSection from "../components/TrustSection";
-import DirectionsSection from "../components/DirectionSection";
 import CertificatesSection from "../components/CertificatesSection";
 import HighlightedServices from "../components/HighlightedServices";
 import NewsSection from "../components/NewsSection";
 import ContactForm from "../components/ContactForm";
+import NavLinks from "../components/NavLinks";
 
 const Home = () => {
   return (
     <>
       <Hero />
+      <NavLinks />
       <TrustSection />
-      <DirectionsSection />
+      {/* <DirectionsSection /> */}
       <CertificatesSection />
       <HighlightedServices />
       <NewsSection />

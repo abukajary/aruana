@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../contexts/AppContext";
 import news from "../locales/news";
+import NavLinks from "../components/NavLinks";
 
 interface Post {
   id: string;
@@ -37,8 +38,8 @@ const InstagramNews: React.FC = () => {
         setPosts([
           {
             id: "1",
-            image: "https://via.placeholder.com/400x300",
-            title: "Пример новости 1",
+            image: "/trust1.jpg",
+            title: "Внедрение принципов NIDCAP",
             description: "Описание новости 1",
             link: instagramUrls[mode],
           },
@@ -69,49 +70,56 @@ const InstagramNews: React.FC = () => {
   }, [mode]);
 
   return (
-    <main className="w-full max-w-[1400px] mx-auto p-8">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-neutral-800">{t.newsSection.title}</h1>
-        {/* <p className="text-lg text-neutral-600 mt-4">{t.newsSection.subtitle}</p> */}
-      </header>
+    <>
+      <NavLinks />
+      <main className="w-full  mx-auto p-8">
+        <header className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-neutral-800">
+            {t.newsSection.title}
+          </h1>
+          {/* <p className="text-lg text-neutral-600 mt-4">{t.newsSection.subtitle}</p> */}
+        </header>
 
-      {loading ? (
-        <p className="text-center text-lg text-neutral-800">Загрузка...</p>
-      ) : posts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <article
-              key={post.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-neutral-800 mb-3">
-                  {post.title}
-                </h3>
-                <p className="text-base text-neutral-600 mb-4">{post.description}</p>
-                <a
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg font-medium text-blue-600 hover:underline"
-                >
-                  {t.newsSection.learnMore}
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <p className="text-center text-lg text-neutral-800">
-          {mode === "adult" ? t.instagram.adults : t.instagram.kids}
-        </p>
-      )}
-    </main>
+        {loading ? (
+          <p className="text-center text-lg text-neutral-800">Загрузка...</p>
+        ) : posts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <article
+                key={post.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-64 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-2xl font-semibold text-neutral-800 mb-3">
+                    {post.title}
+                  </h3>
+                  <p className="text-base text-neutral-600 mb-4">
+                    {post.description}
+                  </p>
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium text-blue-600 hover:underline"
+                  >
+                    {t.newsSection.learnMore}
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-lg text-neutral-800">
+            {mode === "adult" ? t.instagram.adults : t.instagram.kids}
+          </p>
+        )}
+      </main>
+    </>
   );
 };
 

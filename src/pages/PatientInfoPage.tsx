@@ -1,5 +1,5 @@
 import { useAppContext } from "../contexts/AppContext";
-
+import NavLinks from "../components/NavLinks";
 
 const FaqKids = () => {
   const faqs = [
@@ -31,7 +31,7 @@ const FaqKids = () => {
     {
       question: "Как родители участвуют в NIDCAP?",
       answer:
-        "Метод включает активное участие родителей: Обучение правильному уходу за малышом. Создание благоприятных условий дома. Контакт \"кожа к коже\" (метод кенгуру). Участие в кормлении и развитии сенсорных навыков.",
+        'Метод включает активное участие родителей: Обучение правильному уходу за малышом. Создание благоприятных условий дома. Контакт "кожа к коже" (метод кенгуру). Участие в кормлении и развитии сенсорных навыков.',
     },
     {
       question: "Можно ли применять NIDCAP дома?",
@@ -47,7 +47,9 @@ const FaqKids = () => {
 
   return (
     <div className="mx-auto p-6">
-      <h1 className="text-3xl font-semibold text-center mb-6">Для родителей (Ответы на частые вопросы)</h1>
+      <h1 className="text-3xl font-semibold text-center mb-6">
+        Для родителей (Ответы на частые вопросы)
+      </h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
@@ -64,19 +66,42 @@ const FaqKids = () => {
 };
 
 const FaqAdult = () => {
+  const faqs = [
+    {
+      question: "dsa",
+      answer: "dsa"
+    },
+  ]
   return (
-    <>в работе</>
-  )
-}
-
+    <div className="mx-auto p-6">
+      <h1 className="text-3xl font-semibold text-center mb-6">
+        Для Пациентов (Ответы на частые вопросы)
+      </h1>
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <div
+            key={index}
+            className="p-4 border border-gray-200 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-lg"
+          >
+            <h2 className="text-xl font-medium mb-2">{faq.question}</h2>
+            <p className="text-gray-700">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const PatientInfoPage = () => {
-    const { mode } = useAppContext();
+  const { mode } = useAppContext();
 
   return (
-    <div className="w-full p-4 md:p-6 lg:px-16">
-      {mode === "child" ? <FaqKids /> : <FaqAdult />}
-    </div>
+    <>
+      <NavLinks />
+      <div className="w-full p-4 md:p-6 lg:px-16">
+        {mode === "child" ? <FaqKids /> : <FaqAdult />}
+      </div>
+    </>
   );
 };
 

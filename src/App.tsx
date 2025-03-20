@@ -14,16 +14,13 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        {/* Главная страница – одинаковая для взрослых и детей */}
         <Route path="/" element={<Home />} />
         <Route path="/aruanaclinic" element={<Home />} />
         <Route path="/aruanakids" element={<Home />} />
 
-        {/* Страница "О нас" для каждой базовой ссылки */}
         <Route path="/aruanaclinic/about" element={<About />} />
         <Route path="/aruanakids/about" element={<About />} />
 
-        {/* Страница "Услуги" для каждой базовой ссылки */}
         <Route path="/aruanaclinic/services" element={<ServicesPage />} />
         <Route path="/aruanakids/services" element={<ServicesPage />} />
 
