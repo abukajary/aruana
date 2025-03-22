@@ -19,7 +19,7 @@ const Header = () => {
     <header className="w-full bg-[#85848a] text-white p-4 flex flex-col items-center md:flex-row justify-between md:p-6 lg:px-16">
       <div className="flex items-center justify-between w-full">
         <Link to={basePath}>
-          <img src={logoSrc} className="w-60 h-auto" alt="Logo" />
+          <img src={logoSrc} className="w-56 h-auto" alt="Logo" />
         </Link>
         <div className="flex items-center space-x-4">
           <a href={instagramUrl} target="_blank" rel="noopener noreferrer">

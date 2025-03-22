@@ -121,7 +121,7 @@ const ServicesPage: React.FC = () => {
         <main className="max-w-7xl mx-auto px-4 py-8">
           <button
             onClick={() => setIsPopupOpen(true)}
-            className="bg-[#85848a] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#605f65] cursor-pointer"
+            className={`bg-[#85848a] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#605f65] cursor-pointer ${isKids ? 'flex' : 'hidden'}`}
           >
             Открыть акцию
           </button>

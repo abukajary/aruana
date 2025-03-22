@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../contexts/AppContext";
 import news from "../locales/news";
-import NavLinks from "../components/NavLinks";
+// import NavLinks from "../components/NavLinks";
 
 interface Post {
   id: string;
@@ -71,7 +71,6 @@ const InstagramNews: React.FC = () => {
 
   return (
     <>
-      {/* <NavLinks /> */}
       <main className="w-full  mx-auto p-8">
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-neutral-800">
