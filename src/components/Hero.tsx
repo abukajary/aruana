@@ -12,7 +12,7 @@ const Hero = () => {
     navigate(newMode === "adult" ? "/aruanaclinic" : "/aruanakids");
   };
 
-  const phoneNumber = mode ? "77011234567" : "77019876543";
+  const phoneNumber = mode ? "77710309653" : "77029444376";
 
   return (
     <div className="relative w-full bg-[#f4f4f4] flex flex-col items-center">
