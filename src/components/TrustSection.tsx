@@ -16,10 +16,7 @@ const TrustSection = () => {
           "Ваше здоровье – наш приоритет. Доверие строится на результате."
         )
       : t("trust.subtitle.child", "Каждая улыбка ребенка – это наша награда.");
-  const trustButton =
-    mode === "adult"
-      ? t("trust.button.adult", "Подробнее")
-      : t("trust.button.child", "Начать игру");
+  
 
   const features =
     mode === "adult"
