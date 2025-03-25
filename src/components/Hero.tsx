@@ -12,7 +12,7 @@ const Hero = () => {
     navigate(newMode === "adult" ? "/aruanaclinic" : "/aruanakids");
   };
 
-  const phoneNumber = mode ? "77710309653" : "77029444376";
+  const phoneNumber = mode === "child" ? "77710309653" : "77029444376";
 
   return (
     <div className="relative w-full bg-[#f4f4f4] flex flex-col items-center">
@@ -66,7 +66,7 @@ const Hero = () => {
           <button
             onClick={() =>
               window.open(
-                `https://wa.me/${phoneNumber}?text=Здравствуйте, я хотел(а) бы записаться на консультацию`,
+                `https://wa.me/${phoneNumber}?text=Здравствуйте, пишу вам из сайта, я хотел(а) бы записаться на консультацию`,
                 "_blank"
               )
             }

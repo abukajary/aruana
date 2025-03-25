@@ -1,123 +1,86 @@
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { useAppContext } from '../contexts/AppContext';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const { mode } = useAppContext();
 
+  const basePath = mode === 'child' ? '/aruanakids' : '/aruanaclinic';
 
-  const logoSrc = "/aivory/знак/png/logo_aivory-04.png";
-
-  const footerColumns = [
-    {
-      heading: t("footer.column1.heading", "О компании"),
-      links: [
-        { label: t("footer.column1.link1", "О нас"), url: "#" },
-        { label: t("footer.column1.link2", "Наша команда"), url: "#" },
-        { label: t("footer.column1.link3", "Карьера"), url: "#" },
-        { label: t("footer.column1.link4", "Новости"), url: "#" },
-      ],
-    },
-    {
-      heading: t("footer.column2.heading", "Услуги"),
-      links: [
-        { label: t("footer.column2.link1", "ЛФК"), url: "#" },
-        { label: t("footer.column2.link2", "Массаж"), url: "#" },
-        { label: t("footer.column2.link3", "Цены"), url: "#" },
-        { label: t("footer.column2.link4", "Отзывы"), url: "#" },
-      ],
-    },
-    {
-      heading: t("footer.column3.heading", "Поддержка"),
-      links: [
-        { label: t("footer.column3.link1", "FAQ"), url: "#" },
-        { label: t("footer.column3.link2", "Контакты"), url: "#" },
-        { label: t("footer.column3.link3", "Поддержка"), url: "#" },
-        { label: t("footer.column3.link4", "Документы"), url: "#" },
-      ],
-    },
+  const footerLinks = [
+    { key: 'home', label: t('footer.home', 'Главная'), url: basePath },
+    { key: 'about', label: t('footer.about', 'О нас'), url: `${basePath}/about` },
+    { key: 'services', label: t('footer.services', 'Услуги'), url: `${basePath}/services` },
+    { key: 'doctors', label: t('footer.doctors', 'Наши Доктора'), url: '/doctors' },
+    { key: 'news', label: t('footer.news', 'Новости'), url: '/news' },
+    { key: 'contacts', label: t('footer.contacts', 'Контакты'), url: `${basePath}/contacts` },
   ];
 
-  const socialIcons = [
-    { icon: <FaFacebookF className="text-white" />, url: "#" },
-    { icon: <FaTwitter className="text-white" />, url: "#" },
-    { icon: <FaInstagram className="text-white" />, url: "#" },
-    { icon: <FaLinkedinIn className="text-white" />, url: "#" },
-  ];
+  const socialIcons = mode === 'child'
+  ? [
+      { key: 'facebook', icon: <FaFacebookF />, url: 'https://www.facebook.com/aruanakids' },
+      { key: 'instagram', icon: <FaInstagram />, url: 'https://www.instagram.com/aruanakids' },
+      { key: 'twitter', icon: <FaTwitter />, url: 'https://www.twitter.com/aruanakids' },
+    ]
+  : [
+      { key: 'facebook', icon: <FaFacebookF />, url: 'https://www.facebook.com/aruanaclinic' },
+      { key: 'instagram', icon: <FaInstagram />, url: 'https://www.instagram.com/aruanaclinic' },
+      { key: 'linkedin', icon: <FaLinkedinIn />, url: 'https://www.linkedin.com/aruanaclinic' },
+      { key: 'twitter', icon: <FaTwitter />, url: 'https://www.twitter.com/aruanaclinic' },
+    ];
 
   return (
-    <footer className="bg-[#f8f8f8] text-neutral-800 font-montserrat">
-      <div className="bg-[#85848a] text-white">
-        <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <h4 className="text-2xl font-medium">
-              {t("footer.cta.heading", "Хотите больше информации?")}
-            </h4>
-            <p className="text-lg">
-              {t(
-                "footer.cta.subheading",
-                "Напишите нам для консультации и подробной информации."
-              )}
-            </p>
-          </div>
-          <button
-            onClick={() => navigate("/appointment")}
-            className="px-6 py-3 bg-white text-[#85848a] font-semibold rounded-lg hover:bg-gray-200 transition"
-          >
-            {t("footer.cta.button", "Написать")}
-          </button>
+    <footer className="bg-[#1d1f20] text-white py-12">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Колонка 1: Логотип и описание */}
+        <div className="flex flex-col items-center md:items-start">
+          <img src="/aivory/знак/png/logo_aivory_Монтажная область 1.png" alt="Aruana Logo" className="w-32 h-auto mb-4" />
+          <p className="text-center md:text-left text-sm text-gray-400">
+            {t('footer.description', 'Ваше здоровье — наша главная цель! Мы готовы заботиться о вас и вашей семье.')}
+          </p>
         </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {footerColumns.map((col, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-medium mb-4">{col.heading}</h3>
-              <ul className="space-y-2">
-                {col.links.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.url}
-                      className="text-base opacity-60 hover:opacity-80 transition"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div className="flex flex-col items-start space-y-6">
-            <h3 className="text-xl font-medium">
-              {t("footer.social.heading", "Наши соц сети")}
-            </h3>
-            <div className="flex space-x-4">
-              {socialIcons.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.url}
-                  className="w-10 h-10 bg-[#d8d9da] rounded-full flex items-center justify-center hover:bg-[#b3b3b3] transition"
+        {/* Колонка 2: Ссылки на страницы */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold mb-4">{t('footer.links', 'Навигация')}</h3>
+          <ul className="space-y-2">
+            {footerLinks.map((link) => (
+              <li key={link.key}>
+                <Link
+                  to={link.url}
+                  className="text-sm text-gray-400 hover:text-white transition duration-200"
                 >
-                  {item.icon}
-                </a>
-              ))}
-            </div>
-            <div>
-              <img src={logoSrc} alt="Logo" className="w h-auto" />
-            </div>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Колонка 3: Социальные сети */}
+        <div className="flex flex-col items-center md:items-start">
+          <h3 className="text-lg font-semibold mb-4">{t('footer.follow_us', 'Следите за нами')}</h3>
+          <div className="flex space-x-4">
+            {socialIcons.map((icon) => (
+              <a
+                key={icon.key}
+                href={icon.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-700 hover:bg-gray-500 transition duration-200"
+              >
+                {icon.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
-      
+      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} {t('footer.rights', 'Все права защищены')}
+      </div>
     </footer>
   );
 };

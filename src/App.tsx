@@ -4,7 +4,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ServicesPage from "./pages/Services";
-import InstagramNews from "./components/NewsSection";
+import NewsList from "./components/NewsSection";
+import NewsDetail from "./components/NewsDetail";
 import ContactPage from "./pages/Contacts";
 import PatientInfoPage from "./pages/PatientInfoPage";
 import AppointmentPage from "./pages/AppointmentPage";
@@ -12,6 +13,8 @@ import Leadership from "./pages/about/Leadership";
 import Mission from "./pages/about/Mission";
 import Values from "./pages/about/Values";
 import Nidcap from "./pages/about/Nidcap";
+import DoctorsList from "./components/Doctors/DoctorsList";
+import DoctorPage from "./components/Doctors/DoctorProfile";
 import JivoChat from "./components/JivoChat";
 
 
@@ -30,8 +33,9 @@ function App() {
         <Route path="/aruanaclinic/services" element={<ServicesPage />} />
         <Route path="/aruanakids/services" element={<ServicesPage />} />
 
-        <Route path="/aruanaclinic/news" element={<InstagramNews />} />
-        <Route path="/aruanakids/news" element={<InstagramNews />} />
+        <Route path="/news" element={<NewsList />} />
+        <Route path="/news/:id" element={<NewsDetail />} />
+
 
         <Route path="/aruanaclinic/contacts" element={<ContactPage />} />
         <Route path="/aruanakids/contacts" element={<ContactPage />} />
@@ -60,6 +64,11 @@ function App() {
 
 
         <Route path="/appointment" element={<AppointmentPage />} />
+
+        
+        <Route path="/doctors" element={<DoctorsList />} />
+        <Route path="/doctor/:id" element={<DoctorPage />} />
+
       </Routes>
       <Footer />
       <JivoChat />

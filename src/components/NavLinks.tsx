@@ -41,6 +41,11 @@ const NavLinks = () => {
       url: `${basePath}/services`,
     },
     {
+      key: "doctors",
+      label: t("nav.serdoctorsvices", "Наши Доктора"),
+      url: `/doctors`,
+    },
+    {
       key: "requirements",
       label: t(
         mode === "child" ? "nav.forParents" : "nav.forPatients",
@@ -48,7 +53,7 @@ const NavLinks = () => {
       ),
       url: `${basePath}/requirements`,
     },
-    { key: "news", label: t("nav.news", "Новости"), url: `${basePath}/news` },
+    { key: "news", label: t("nav.news", "Новости"), url: `/news` },
     {
       key: "contacts",
       label: t("nav.contacts", "Контакты"),
