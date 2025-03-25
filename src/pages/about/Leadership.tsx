@@ -21,7 +21,7 @@ const AboutSection = ({ sections }: { sections: Section[] }) => (
             <img
               src={section.image}
               alt={section.title}
-              className="rounded-lg shadow-md w-full h-auto"
+              className="rounded-lg shadow-md "
             />
           </div>
         )}
