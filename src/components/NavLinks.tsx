@@ -11,14 +11,49 @@ const NavLinks = () => {
   const navLinks = [
     { key: "home", label: t("nav.home", "Главная"), url: basePath },
     { key: "about", label: t("nav.about", "О нас"), url: `${basePath}/about` },
-    { key: "services", label: t("nav.services", "Услуги"), url: `${basePath}/services` },
-    { 
-      key: "requirements", 
-      label: t(mode === "child" ? "nav.forParents" : "nav.forPatients", mode === "child" ? "Для родителей" : "Для пациентов"),
-      url: `${basePath}/requirements`
+    {
+      key: "mission",
+      label: t("nav.mission", "Миссия"),
+      url: `${basePath}/mission`,
+    },
+    {
+      key: "values",
+      label: t("nav.values", "Ценности"),
+      url: `${basePath}/values`,
+    },
+    {
+      key: "leadBlog",
+      label: t("nav.leadBlog", "Блог Директора"),
+      url: `${basePath}/leadBlog`,
+    },
+    {
+      key: "nidcap",
+      label: t(
+        mode === "child" ? "nav.nidcap" : "nav.nidcap2",
+        mode === "child" ? "Про NIDCAP" : ""
+      ),
+      url: `${basePath}/NIDCAP`,
+    },
+
+    {
+      key: "services",
+      label: t("nav.services", "Услуги"),
+      url: `${basePath}/services`,
+    },
+    {
+      key: "requirements",
+      label: t(
+        mode === "child" ? "nav.forParents" : "nav.forPatients",
+        mode === "child" ? "Для родителей" : "Для пациентов"
+      ),
+      url: `${basePath}/requirements`,
     },
     { key: "news", label: t("nav.news", "Новости"), url: `${basePath}/news` },
-    { key: "contacts", label: t("nav.contacts", "Контакты"), url: `${basePath}/contacts` },
+    {
+      key: "contacts",
+      label: t("nav.contacts", "Контакты"),
+      url: `${basePath}/contacts`,
+    },
   ];
 
   return (

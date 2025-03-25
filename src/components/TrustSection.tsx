@@ -92,9 +92,7 @@ const TrustSection = () => {
           </div>
         </div>
         <div className="text-center mt-8">
-          <button className="px-8 py-3 bg-[#85848a] text-white text-xl font-semibold rounded hover:bg-gray-700 transition duration-150">
-            {trustButton}
-          </button>
+          
         </div>
       </div>
     </section>

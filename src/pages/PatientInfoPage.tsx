@@ -1,6 +1,7 @@
 import { useAppContext } from "../contexts/AppContext";
 import NavLinks from "../components/NavLinks";
 
+
 const FaqKids = () => {
   const faqs = [
     {
@@ -68,7 +69,7 @@ const FaqKids = () => {
 const FaqAdult = () => {
   const faqs = [
     {
-      question: "dsa",
+      question: "Какие пренодлежности взять с собой перед прибытием в клинику",
       answer: "dsa"
     },
   ]

@@ -12,6 +12,8 @@ const Hero = () => {
     navigate(newMode === "adult" ? "/aruanaclinic" : "/aruanakids");
   };
 
+  const phoneNumber = mode ? "77011234567" : "77019876543";
+
   return (
     <div className="relative w-full bg-[#f4f4f4] flex flex-col items-center">
       <div className=" w-full mx-auto flex flex-col md:flex-row items-center p-4 md:p-6 lg:px-16">
@@ -62,15 +64,20 @@ const Hero = () => {
               : t("hero.kids_rehab_text")}
           </p>
           <button
-            onClick={() => navigate("/appointment")}
-            className="px-5 py-2.5 rounded-lg bg-white text-base font-bold text-[#23556d] border border-[#23556d]"
+            onClick={() =>
+              window.open(
+                `https://wa.me/${phoneNumber}?text=Здравствуйте, я хотел(а) бы записаться на консультацию`,
+                "_blank"
+              )
+            }
+            className="px-5 py-2.5 rounded-lg bg-white text-base font-bold text-[#23556d] border border-[#23556d] cursor-pointer"
           >
             {t("hero.consultation")}
           </button>
         </div>
         <div className="w-full md:w-1/2 flex justify-end mt-10 md:mt-0">
           <img
-            src={mode === "adult" ? "/mainclinic.jpg" : "/mainkids.jpg"}
+            src={mode === "adult" ? "/mainclinic.jpg" : "/trymainkids.jpg"}
             alt="Rehab Center"
             className="max-w-full max-h-[400px] rounded-lg shadow-lg"
           />

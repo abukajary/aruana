@@ -8,6 +8,12 @@ import InstagramNews from "./components/NewsSection";
 import ContactPage from "./pages/Contacts";
 import PatientInfoPage from "./pages/PatientInfoPage";
 import AppointmentPage from "./pages/AppointmentPage";
+import Leadership from "./pages/about/Leadership";
+import Mission from "./pages/about/mission";
+import Values from "./pages/about/Values";
+import Nidcap from "./pages/about/Nidcap";
+import JivoChat from "./components/JivoChat";
+
 
 function App() {
   return (
@@ -30,6 +36,22 @@ function App() {
         <Route path="/aruanaclinic/contacts" element={<ContactPage />} />
         <Route path="/aruanakids/contacts" element={<ContactPage />} />
 
+        
+        <Route path="/aruanaclinic/leadBlog" element={<Leadership />} />
+        <Route path="/aruanakids/leadBlog" element={<Leadership />} />
+
+        
+        <Route path="/aruanaclinic/values" element={<Values />} />
+        <Route path="/aruanakids/values" element={<Values />} />
+
+        
+        <Route path="/aruanaclinic/mission" element={<Mission />} />
+        <Route path="/aruanakids/mission" element={<Mission />} />
+
+        
+        <Route path="/aruanaclinic/nidcap" element={<Nidcap />} />
+        <Route path="/aruanakids/nidcap" element={<Nidcap />} />
+
         <Route
           path="/aruanaclinic/requirements"
           element={<PatientInfoPage />}
@@ -40,6 +62,7 @@ function App() {
         <Route path="/appointment" element={<AppointmentPage />} />
       </Routes>
       <Footer />
+      <JivoChat />
     </Router>
   );
 }

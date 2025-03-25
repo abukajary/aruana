@@ -3,7 +3,7 @@ const contacts = {
     adults: {
       howToFindUs: "Как нас найти?",
       title: "Контакты для взрослых",
-      address: "Адрес: ул. Алмалы, 35а",
+      address: "Адрес: Проспект Достык, 125",
       phoneLabel: "Телефон",
       phone: "8 (771) 030 96 53",
       emailLabel: "Электронная почта",
@@ -11,13 +11,13 @@ const contacts = {
       whatsapp: "8 (771) 030 96 53",
       instagram: "https://www.instagram.com/aruana_clinic/",
       mapLabel: "Мы на карте",
-      map2gis: "https://2gis.kz/almaty/firm/70000001056335819",
+      map2gis: "https://2gis.kz/almaty/geo/70000001098250766",
       mapYandex: "https://yandex.kz/maps/org/aruana_clinic/1234567890",
     },
     kids: {
       howToFindUs: "Как нас найти?",
       title: "Контакты для детей",
-      address: "Адрес: ул. Баумана, 12",
+      address: "Адрес: Проспект Достык, 125",
       phoneLabel: "Телефоны",
       phone:
         "8 (771) 030 96 53",
@@ -26,7 +26,7 @@ const contacts = {
       whatsapp: "8 (771) 030 96 53",
       instagram: "https://www.instagram.com/aruana_kids/",
       mapLabel: "Мы на карте",
-      map2gis: "https://2gis.kz/almaty/firm/70000001056335820",
+      map2gis: "https://go.2gis.com/myvjw",
       mapYandex: "https://yandex.kz/maps/org/aruana_kids/0987654321",
     },
   },

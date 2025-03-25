@@ -14,12 +14,20 @@ interface AppContextProps {
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("ru");
-  const [mode, setMode] = useState<Mode>("adult");
+  // Инициализация состояния из localStorage или значений по умолчанию
+  const [language, setLanguage] = useState<Language>(
+    () => (localStorage.getItem("language") as Language) || "ru"
+  );
+  const [mode, setMode] = useState<Mode>(
+    () => (localStorage.getItem("mode") as Mode) || "adult"
+  );
 
+  // Сохраняем состояние в localStorage при изменении
   useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language]); 
+    localStorage.setItem("language", language);
+    localStorage.setItem("mode", mode);
+    i18n.changeLanguage(language); // Обновление языка в i18n
+  }, [language, mode]);
 
   const contextValue = useMemo(
     () => ({ language, mode, setLanguage, setMode }),
@@ -28,7 +36,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 };
-
 
 export const useAppContext = () => {
   const context = useContext(AppContext);

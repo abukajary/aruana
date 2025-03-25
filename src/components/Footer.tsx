@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { useAppContext } from "../contexts/AppContext";
 import {
   FaFacebookF,
   FaTwitter,
@@ -10,11 +9,10 @@ import {
 
 const Footer = () => {
   const { t } = useTranslation();
-  const { mode } = useAppContext();
   const navigate = useNavigate();
 
 
-  const logoSrc = mode === "child" ? "/aruana_kidsx1.png" : "/aruanax1.png";
+  const logoSrc = "/aivory/знак/png/logo_aivory-04.png";
 
   const footerColumns = [
     {
@@ -29,8 +27,8 @@ const Footer = () => {
     {
       heading: t("footer.column2.heading", "Услуги"),
       links: [
-        { label: t("footer.column2.link1", "Услуга 1"), url: "#" },
-        { label: t("footer.column2.link2", "Услуга 2"), url: "#" },
+        { label: t("footer.column2.link1", "ЛФК"), url: "#" },
+        { label: t("footer.column2.link2", "Массаж"), url: "#" },
         { label: t("footer.column2.link3", "Цены"), url: "#" },
         { label: t("footer.column2.link4", "Отзывы"), url: "#" },
       ],
@@ -113,25 +111,13 @@ const Footer = () => {
               ))}
             </div>
             <div>
-              <img src={logoSrc} alt="Logo" className="w-32 h-auto" />
+              <img src={logoSrc} alt="Logo" className="w h-auto" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-4 border-t border-gray-200">
-        <div className="flex justify-center items-center space-x-4">
-          {socialIcons.map((item, index) => (
-            <a
-              key={index}
-              href={item.url}
-              className="w-10 h-10 bg-[#d8d9da] rounded-full flex items-center justify-center hover:bg-[#b3b3b3] transition"
-            >
-              {item.icon}
-            </a>
-          ))}
-        </div>
-      </div>
+      
     </footer>
   );
 };
