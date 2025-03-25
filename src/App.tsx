@@ -9,7 +9,7 @@ import ContactPage from "./pages/Contacts";
 import PatientInfoPage from "./pages/PatientInfoPage";
 import AppointmentPage from "./pages/AppointmentPage";
 import Leadership from "./pages/about/Leadership";
-import Mission from "./pages/about/mission";
+import Mission from "./pages/about/Mission";
 import Values from "./pages/about/Values";
 import Nidcap from "./pages/about/Nidcap";
 import JivoChat from "./components/JivoChat";
