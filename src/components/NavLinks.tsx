@@ -1,73 +1,67 @@
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { useAppContext } from "../contexts/AppContext";
 
 const NavLinks = () => {
-  const { t } = useTranslation();
   const { mode } = useAppContext();
-
   const basePath = mode === "child" ? "/aruanakids" : "/aruanaclinic";
 
   const navLinks = [
-    { key: "home", label: t("nav.home", "Главная"), url: basePath },
-    { key: "about", label: t("nav.about", "О нас"), url: `${basePath}/about` },
-    {
-      key: "mission",
-      label: t("nav.mission", "Миссия"),
-      url: `${basePath}/mission`,
-    },
-    {
-      key: "values",
-      label: t("nav.values", "Ценности"),
-      url: `${basePath}/values`,
-    },
-    {
-      key: "leadBlog",
-      label: t("nav.leadBlog", "Блог Директора"),
-      url: `${basePath}/leadBlog`,
-    },
+    { key: "home", label: "Главная", url: basePath },
+    { key: "about", label: "О нас", url: `${basePath}/about` },
+    { key: "mission", label: "Миссия", url: `${basePath}/mission` },
+    { key: "values", label: "Ценности", url: `${basePath}/values` },
+    { key: "leadBlog", label: "Блог Директора", url: `${basePath}/leadBlog` },
     {
       key: "nidcap",
-      label: t(
-        mode === "child" ? "nav.nidcap" : "nav.nidcap2",
-        mode === "child" ? "Про NIDCAP" : ""
-      ),
+      label: "Про NIDCAP",
       url: `${basePath}/NIDCAP`,
+      hiddenModes: ["adult"],
     },
-
-    {
-      key: "services",
-      label: t("nav.services", "Услуги"),
-      url: `${basePath}/services`,
-    },
-    {
-      key: "doctors",
-      label: t("nav.serdoctorsvices", "Наши Доктора"),
-      url: `/doctors`,
-    },
+    { key: "services", label: "Услуги", url: `${basePath}/services` },
+    { key: "doctors", label: "Наши Доктора", url: "/doctors" },
     {
       key: "requirements",
-      label: t(
-        mode === "child" ? "nav.forParents" : "nav.forPatients",
-        mode === "child" ? "Для родителей" : "Для пациентов"
-      ),
+      label: mode === "child" ? "Для родителей" : "Для пациентов",
       url: `${basePath}/requirements`,
     },
-    { key: "news", label: t("nav.news", "Новости"), url: `/news` },
+    { key: "news", label: "Новости", url: "/news" },
     {
-      key: "contacts",
-      label: t("nav.contacts", "Контакты"),
-      url: `${basePath}/contacts`,
+      key: "reqsList",
+      label: "Обследование для госпитализации",
+      url: "/reqsList",
+      hiddenModes: ["child"],
     },
+    {
+      key: "ourFeatures",
+      label: "Наши особенности",
+      url: `${basePath}/ourFeatures`,
+    },
+    { key: "osmsgobmp", label: "ОСМС и ГОБМП", url: `${basePath}/osmsgobmp` },
+    {
+      key: "IntensiveCarePage",
+      label: "Палата интенсивной терапии ",
+      url: `${basePath}/intensiveCare`,
+    },
+    {
+      key: "paidDepartmentPage",
+      label: "Платное отделение ",
+      url: `${basePath}/paidDepartmentPage`,
+    },
+    { key: "contacts", label: "Контакты", url: `${basePath}/contacts` },
   ];
 
   return (
-    <nav className="w-full bg-[#36383a] text-[#d8d9da] p-4 grid grid-cols-2 md:flex md:justify-center gap-2 text-nowrap">
-      {navLinks.map((link) => (
-        <Link key={link.key} to={link.url} className="hover:underline">
-          {link.label}
-        </Link>
-      ))}
+    <nav
+      className="w-full bg-[#36383a] text-[#d8d9da] p-4 grid gap-2 
+                grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:flex lg:justify-center lg:flex-wrap"
+    >
+      {navLinks
+        .filter((link) => !link.hiddenModes?.includes(mode))
+        .map(({ key, label, url }) => (
+          <Link key={key} to={url} className="hover:underline">
+            {label}
+          </Link>
+        ))}
     </nav>
   );
 };

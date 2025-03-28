@@ -22,7 +22,11 @@ const NewsDetail: React.FC = () => {
           alt={newsItem.title}
           className="w-full h-64 object-cover rounded-lg mb-4"
         />
-        <p className="text-gray-700 text-lg">{newsItem.fullText}</p>
+        {newsItem.fullText.map((value: string, index: number) => (
+          <p key={index} className="text-gray-700 text-lg">
+            {value}
+          </p>
+        ))}
       </div>
     </>
   );

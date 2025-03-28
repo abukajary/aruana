@@ -15,7 +15,12 @@ import Values from "./pages/about/Values";
 import Nidcap from "./pages/about/Nidcap";
 import DoctorsList from "./components/Doctors/DoctorsList";
 import DoctorPage from "./components/Doctors/DoctorProfile";
-import JivoChat from "./components/JivoChat";
+import RequirementsOverview from "./components/RequirementsOverview";
+import OsmsGobmp from "./pages/about/osmsgobmp";
+import Features from "./pages/about/Features";
+import IntensiveCarePage from "./pages/IntensiveCarePage";
+import PaidDepartmentPage from "./pages/PaidDepartmentPage";
+// import JivoChat from "./components/JivoChat";
 
 
 function App() {
@@ -69,9 +74,17 @@ function App() {
         <Route path="/doctors" element={<DoctorsList />} />
         <Route path="/doctor/:id" element={<DoctorPage />} />
 
+        
+        <Route path="/reqsList" element={<RequirementsOverview />} />
+        
+        <Route path="/aruanaclinic/osmsgobmp" element={<OsmsGobmp />} />
+        <Route path="/aruanaclinic/ourFeatures" element={<Features />} />
+        <Route path="/aruanaclinic/intensiveCare" element={<IntensiveCarePage />} />
+        <Route path="/aruanaclinic/paidDepartmentPage" element={<PaidDepartmentPage />} />
+
       </Routes>
       <Footer />
-      <JivoChat />
+      {/* <JivoChat /> */}
     </Router>
   );
 }
