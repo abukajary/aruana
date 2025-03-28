@@ -1,11 +1,22 @@
 import { useTranslation } from "react-i18next";
 import { useAppContext } from "../contexts/AppContext";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Hero = () => {
   const { t } = useTranslation();
   const { mode, setMode } = useAppContext();
+  const pathname = window.location.pathname;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Проверка pathname при входе на страницу
+    if (pathname === "/aruanakids") {
+      setMode("child");
+    } else if (pathname === "/aruanaclinic") {
+      setMode("adult");
+    }
+  }, [pathname, setMode]);
 
   const handleModeChange = (newMode: "adult" | "child") => {
     setMode(newMode);
@@ -16,7 +27,7 @@ const Hero = () => {
 
   return (
     <div className="relative w-full bg-[#f4f4f4] flex flex-col items-center">
-      <div className=" w-full mx-auto flex flex-col md:flex-row items-center p-4 md:p-6 lg:px-16">
+      <div className="w-full mx-auto flex flex-col md:flex-row items-center p-4 md:p-6 lg:px-16">
         <div className="w-full md:w-1/2 space-y-6">
           <p className="text-base font-bold text-[#23556d]">
             {t("hero.welcome_to_aruana")}

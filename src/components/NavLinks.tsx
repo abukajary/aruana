@@ -9,7 +9,6 @@ const NavLinks = () => {
     { key: "home", label: "Главная", url: basePath },
     { key: "about", label: "О нас", url: `${basePath}/about` },
     { key: "mission", label: "Миссия", url: `${basePath}/mission` },
-    { key: "values", label: "Ценности", url: `${basePath}/values` },
     { key: "leadBlog", label: "Блог Директора", url: `${basePath}/leadBlog` },
     {
       key: "nidcap",
@@ -21,10 +20,17 @@ const NavLinks = () => {
     { key: "doctors", label: "Наши Доктора", url: "/doctors" },
     {
       key: "requirements",
-      label: mode === "child" ? "Для родителей" : "Для пациентов",
+      label: "Для родителей",
       url: `${basePath}/requirements`,
+      hiddenModes: ["adult"],
     },
     { key: "news", label: "Новости", url: "/news" },
+    {
+      key: "osmsgobmp",
+      label: "ОСМС и ГОБМП",
+      url: `${basePath}/osmsgobmp`,
+      hiddenModes: ["child"],
+    },
     {
       key: "reqsList",
       label: "Обследование для госпитализации",
@@ -35,17 +41,19 @@ const NavLinks = () => {
       key: "ourFeatures",
       label: "Наши особенности",
       url: `${basePath}/ourFeatures`,
+      hiddenModes: ["child"],
     },
-    { key: "osmsgobmp", label: "ОСМС и ГОБМП", url: `${basePath}/osmsgobmp` },
     {
       key: "IntensiveCarePage",
       label: "Палата интенсивной терапии ",
       url: `${basePath}/intensiveCare`,
+      hiddenModes: ["child"],
     },
     {
       key: "paidDepartmentPage",
       label: "Платное отделение ",
       url: `${basePath}/paidDepartmentPage`,
+      hiddenModes: ["child"],
     },
     { key: "contacts", label: "Контакты", url: `${basePath}/contacts` },
   ];

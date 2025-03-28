@@ -20,17 +20,17 @@ const ContactForm: React.FC = () => {
         {t.howToFindUs}
       </h2>
       <p className="text-lg font-medium text-gray-600 text-center mb-6">
-        {t.address}
+      {isChildMode ? `${t.address}` : 'ул. Алмалы, 35А'}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="text-center">
           <p className="text-gray-800 font-semibold">{t.phoneLabel}</p>
-          <p className="text-primary-pink text-lg">{t.phone}</p>
+          <p className="text-primary-pink text-xl">{isChildMode ? `${t.phone}` : '8 (7272) 62 12 08'}</p>
         </div>
         <div className="text-center">
           <p className="text-gray-800 font-semibold">{t.emailLabel}</p>
-          <p className="text-primary-pink text-lg">{t.email}</p>
+          <p className="text-primary-pink text-xl">{isChildMode ? t.email : 'info@aruanaclinic.kz'}</p>
         </div>
       </div>
 
@@ -42,7 +42,11 @@ const ContactForm: React.FC = () => {
       <div className="overflow-hidden rounded-lg shadow-lg">
         <iframe
           title="yamaps"
-          src="https://yandex.ru/map-widget/v1/?ll=76.963665%2C43.214283&z=16&pt=76.963665,43.214283"
+          src={
+            isChildMode
+              ? "https://yandex.ru/map-widget/v1/?ll=76.963665%2C43.214283&z=16&pt=76.963665,43.214283"
+              : "https://yandex.ru/map-widget/v1/?ll=76.919556%2C43.195502&z=16&pt=76.919556,43.195502"
+          }
           width="100%"
           height="400"
           allowFullScreen
