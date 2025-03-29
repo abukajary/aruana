@@ -20,6 +20,7 @@ import OsmsGobmp from "./pages/about/osmsgobmp";
 import Features from "./pages/about/Features";
 import IntensiveCarePage from "./pages/IntensiveCarePage";
 import PaidDepartmentPage from "./pages/PaidDepartmentPage";
+import PackageDetailsPage from "./pages/RehabPacketDetail";
 // import JivoChat from "./components/JivoChat";
 
 
@@ -81,6 +82,7 @@ function App() {
         <Route path="/aruanaclinic/ourFeatures" element={<Features />} />
         <Route path="/aruanaclinic/intensiveCare" element={<IntensiveCarePage />} />
         <Route path="/aruanaclinic/paidDepartmentPage" element={<PaidDepartmentPage />} />
+        <Route path="/aruanaclinic/paidDepartmentPage/:id" element={<PackageDetailsPage />} />
 
       </Routes>
       <Footer />

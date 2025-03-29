@@ -1,5 +1,39 @@
 import React from "react";
 import NavLinks from "../components/NavLinks";
+import rehabilitationPackages from "../locales/RehabPack";
+import { Link } from "react-router-dom";
+
+const RehabPackages = () => {
+  return (
+    <div className="container mx-auto">
+      <h1 className="text-2xl font-bold mb-4 text-center">
+        Реабилитационные пакеты
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {Object.values(rehabilitationPackages).map((pkg) => (
+          <div
+            key={pkg.name}
+            className="p-4 border rounded-lg shadow-lg flex flex-col justify-between"
+          >
+            <div>
+              <h2 className="text-xl font-semibold">{pkg.name}</h2>
+              <p className="text-gray-600 mb-4">{pkg.targetPatients}</p>
+            </div>
+            <div>
+              <p className="text-gray-600 mb-4">{pkg.price} тг</p>
+              <Link
+                to={`/aruanaclinic/paidDepartmentPage/${pkg.id}`}
+                className="border-2 px-4 py-2 w-32 self-center rounded-md cursor-pointer"
+              >
+                Подробнее
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const PaidDepartmentPage: React.FC = () => {
   return (
@@ -53,8 +87,9 @@ const PaidDepartmentPage: React.FC = () => {
             Clinic вы получите медицинскую помощь, соответствующую высоким
             стандартам качества.
           </p>
-          <p>📞 Запись и консультации: [Контакты клиники]</p>
+          <p>📞 Запись и консультации: 8 (7272) 62 12 08</p>
         </main>
+        <RehabPackages />
       </div>
     </>
   );

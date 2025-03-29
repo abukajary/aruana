@@ -20,7 +20,7 @@ const contacts = {
       address: "Адрес: Проспект Достык, 125",
       phoneLabel: "Телефоны",
       phone:
-        "8 (771) 030 96 53",
+        "8 (771) 030 96 50, 8 (771) 030 96 51, 8 (771) 030 96 53",
       emailLabel: "Электронная почта",
       email: "info@aruana_kids.kz",
       whatsapp: "8 (771) 030 96 53",

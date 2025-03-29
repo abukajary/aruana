@@ -29,8 +29,38 @@ const Header = () => {
             />
           </a>
           <div className="text-white font-bold">
-            <a href="tel:+77710309653" className="hover:underline">
+            <a
+              href="tel:+77710309653"
+              className={`hover:underline ${
+                mode === "adult" ? "hidden" : "flex"
+              }`}
+            >
               8 (771) 030 96 53
+            </a>
+            <a
+              href="tel:+77710309651"
+              className={`hover:underline ${
+                mode === "adult" ? "hidden" : "flex"
+              }`}
+            >
+              8 (771) 030 96 51
+            </a>
+            <a
+              href="tel:+77710309650"
+              className={`hover:underline ${
+                mode === "adult" ? "hidden" : "flex"
+              }`}
+            >
+              8 (771) 030 96 50
+            </a>
+
+            <a
+              href="tel:+77272621208"
+              className={`hover:underline ${
+                mode === "child" ? "hidden" : "flex"
+              }`}
+            >
+              8 (7272) 62 12 08
             </a>
           </div>
         </div>
