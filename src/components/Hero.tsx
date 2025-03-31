@@ -10,7 +10,6 @@ const Hero = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Проверка pathname при входе на страницу
     if (pathname === "/aruanakids") {
       setMode("child");
     } else if (pathname === "/aruanaclinic") {
@@ -88,7 +87,7 @@ const Hero = () => {
         </div>
         <div className="w-full md:w-1/2 flex justify-end mt-10 md:mt-0">
           <img
-            src={mode === "adult" ? "/mainclinic.jpg" : "/trymainkids.jpg"}
+            src={mode === "adult" ? "/mainclinic.jpg" : "/kidsmain.jpg"}
             alt="Rehab Center"
             className="max-w-full max-h-[400px] rounded-lg shadow-lg"
           />

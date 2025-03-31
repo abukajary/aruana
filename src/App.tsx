@@ -21,7 +21,7 @@ import Features from "./pages/about/Features";
 import IntensiveCarePage from "./pages/IntensiveCarePage";
 import PaidDepartmentPage from "./pages/PaidDepartmentPage";
 import PackageDetailsPage from "./pages/RehabPacketDetail";
-// import JivoChat from "./components/JivoChat";
+import JivoChat from "./components/JivoChat";
 
 
 function App() {
@@ -86,7 +86,7 @@ function App() {
 
       </Routes>
       <Footer />
-      {/* <JivoChat /> */}
+      <JivoChat />
     </Router>
   );
 }
